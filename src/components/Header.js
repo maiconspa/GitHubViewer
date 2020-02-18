@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './services/GitHubUser';
+import './services/API';
 import './../App.css'
-
-var GitHubUser = require('./services/GitHubUser');
+import API from './services/API';
 
 
 export default class Main extends Component {
@@ -17,12 +16,12 @@ export default class Main extends Component {
         
         e.preventDefault();
         
-        GitHubUser.getByUsername(this.refs.username.value).then(function(response){
+        API.getByUsername(this.refs.username.value).then(function(response){
             this.props.updateUser(response.data);
         }.bind(this));
 
-        GitHubUser.getReposByUsername(this.refs.username.value).then(function(response){
-            this.props.updateRepos(response.repos);
+        API.getReposByUsername(this.refs.username.value).then(function(response) {
+            this.props.updateRepos(response.data);
         }.bind(this));
     }
 

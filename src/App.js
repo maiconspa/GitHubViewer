@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Main from './components/Main'
+import MainUser from './components/MainUser';
+import MainRepos from './components/MainRepos';
 import './App.css';
 
 export default class App extends Component {
@@ -18,12 +19,15 @@ export default class App extends Component {
 	updateRepos = (repos) => {
 			this.setState({repos: repos});
 	}
+	
 	render(){
-	return (
-		<div className="App">
-			<Header updateUser={this.updateUser} updateRepos={this.updateRepos} />
-			<Main user={this.state.user} repos={this.state.repos}/>
-		</div>
-	);
+		return (
+			<div className="App">
+				<Header updateUser={this.updateUser} updateRepos={this.updateRepos} />
+				<MainUser user={this.state.user} />
+				<MainRepos repos={this.state.repos} />
+
+			</div>
+		);
 }
 }
