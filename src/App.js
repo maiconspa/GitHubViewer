@@ -7,11 +7,10 @@ import './App.css';
 export default class App extends Component {
 	state = () => {
 		return ({
-				user: null,
-				repos: [],
+			user: null,
+			repos: [],
 		});
 	}
-
 	updateUser = (user) => {
 			this.setState({user: user});
 	}

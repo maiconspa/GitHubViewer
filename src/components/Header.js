@@ -6,11 +6,13 @@ import API from './services/API';
 
 export default class Main extends Component {
 
+    /*
+
     getFavorites = (e) => {
         e.preventDefault();
         console.log("favorito");
-
     }
+    */
 
     getSubmit = (e) => {
         
@@ -32,11 +34,7 @@ export default class Main extends Component {
                     <h1>GitHub Viewer</h1>
                 </div>
                 
-                <div>
-                    <form onSubmit={this.getFavorites}>
-                        <button type="submit" id="btnFav">Favoritos</button> 
-                    </form>
-                </div>
+                <div></div>
 
                 <div>
                     <form onSubmit={this.getSubmit}> 
