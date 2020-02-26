@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 var API = {
-    getByUsername: function (username){
+    getUserInfo: function (username){
         return axios.get('https://api.github.com/users/' +username);
     },
 
-    getReposByUsername: function (username) {
+    getReposInfo: function (username) {
         return axios.get('https://api.github.com/users/' +username +'/repos')
     }
 };
