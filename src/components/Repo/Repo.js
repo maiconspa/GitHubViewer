@@ -1,14 +1,20 @@
 import React from 'react';
-import './repo.css';
+
+// Stylization
+import { RepoCard } from './styles.js';
 
 const Repo = (props) => {
     const repo = props.repo;
 
     return (
-        <div className="repoCard">
-            <a href={repo.html_url}>{repo.name}</a>
-            <p>{repo.description}</p>
-        </div>
+        <RepoCard>
+            <a href={repo.html_url}>
+                {repo.name}
+            </a>
+            <p>
+                {repo.description}
+            </p>
+        </RepoCard>
     );
 }
 

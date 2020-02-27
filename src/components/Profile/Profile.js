@@ -1,14 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons'
-import './profile.css';
+import { ProfileArea, Name, Username, Img, Text, Location } from './styles';
 
 const renderLocation = (location) => {
     return (
-        <div className="group">
+        <Location>
             <FontAwesomeIcon icon={faMapMarker} />
-            <h6>{location}</h6>
-        </div>
+            <h5> {location} </h5>
+        </Location>
     );
 }
 
@@ -16,13 +16,13 @@ const Profile = (props) => {
     const user = props.user;
 
     return(
-        <div id="profileArea">
-            <h1>{user.name}</h1>
-            <h3>{user.login}</h3>
-            <img src={user.avatar_url} alt=""/>
-            {user.bio ? <p>{user.bio}</p> :null}
+        <ProfileArea>
+            <Name>{user.name}</Name>
+            <Username>{user.login}</Username>
+            <Img src={user.avatar_url} alt=""/>
+            {user.bio ? <Text>{user.bio}</Text> :null}
             {user.location ? renderLocation(user.location) : null}
-        </div>
+        </ProfileArea>
     );
 }
 
