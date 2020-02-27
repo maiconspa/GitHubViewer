@@ -64,10 +64,13 @@ export default class App extends Component {
 
 				<div id="infos">
 					{ user.length !== 0 ? <Profile user={user} />  : null}
-					<div id="reposArea">
-						{ user.length !== 0 ? <h1>Repositories</h1>  : null}
+					
+					{ user.length !== 0 ?
+					<div id="reposArea"> 
+						<h1>Repositories</h1> 
 						{ repos.map( repo => <Repo key={repo.name} repo={repo}/>) }
-					</div>
+					</div> : null }
+
 				</div>
 			</div>
 		);
