@@ -1,9 +1,14 @@
 // Components
 import React, { Component } from 'react';
 import axios from 'axios';
-import Navbar from './components/Navbar/Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 import Profile from './components/Profile/Profile';
 import Repo from './components/Repo/Repo';
+
+// SVG
+import GitHubLogo from './assets/GitHub.svg';
 
 // CSS
 import './App.css';
@@ -19,31 +24,49 @@ export default class App extends Component {
 	}
 
 	getUser = (e) => {
-		const user = e.target.value;
+		// Prevenindo reload da página
+		e.preventDefault();
+
+		// Capturando o username digitado:
+		const user = document.getElementById('searchBox').value;
+
+		// Simplificando o referenciamento do estado:
 		const { urlGitHub } = this.state;
 
+		// Capturando dados do usuário:
 		axios.get(urlGitHub +'/' +user ).then(
 			({data}) => this.setState({user: data})
 		);
 
+		// Capturando repositórios:
 		axios.get(urlGitHub +'/' +user +'/repos').then(
 			({data}) => this.setState({repos: data})
 		);
 	}
 
 	render(){
-		
+		const user = this.state.user;
+		const repos = this.state.repos;
+
 		return (
 			<div className="App">
-				<Navbar />
+				
 				<div id="searchArea">
-					<h1>Busque usuários do GitHub</h1>
-					<label>Digite um username para encontrar usuários e repositórios</label>
-					<input onChange={this.getUser} id="searchBox" type="text" required />
+					<form onSubmit={this.getUser}>
+						<img src={GitHubLogo} alt=""/>
+						<input id="searchBox" placeholder="Ex: maiconspa" type="text" required />
+						<button type="submit">
+							<FontAwesomeIcon icon={faSearch} />
+						</button>
+					</form>
 				</div>
+
 				<div id="infos">
-					{ this.state.user.length !== 0 ? <Profile user={this.state.user} />  : null}
-					{ this.state.repos.map( repo => <Repo key={repo.name} repo={repo}/>) }
+					{ user.length !== 0 ? <Profile user={user} />  : null}
+					<div id="reposArea">
+						{ user.length !== 0 ? <h1>Repositories</h1>  : null}
+						{ repos.map( repo => <Repo key={repo.name} repo={repo}/>) }
+					</div>
 				</div>
 			</div>
 		);

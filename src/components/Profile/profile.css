@@ -1,0 +1,39 @@
+#profileArea {
+    width: 268px;
+    height: 100%;
+    padding: 22px 10px 22px 10px;
+    margin-right: 100px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+#profileArea h1{
+    margin: 0 0 0 10px;
+}
+
+#profileArea h3{
+    color: #333;
+    margin-top: 0;
+}
+
+#profileArea img{
+    left: 0;
+    border-radius: 50%;
+    width: 250px;
+}
+
+#profileArea p {
+    max-width: 250px;
+    text-align: center;
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+}
+
+.group h6 {
+    margin: 0 0 0 10px;
+}

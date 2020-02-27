@@ -1,0 +1,65 @@
+#searchArea {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+#searchArea form {
+    padding: 16px;
+    height: 32px;
+    background-color: #24292E;
+    color: #fff;
+    align-content: center;
+    display: flex;
+}
+
+#searchArea form img svg {
+    fill: #fff;
+}
+
+#searchArea form input {
+    width: 250px;
+    height: 28px;
+    padding-left: 8px;
+    margin: 0 0 0 16px;
+    background-color: #3F4448;
+    color: #6E7275;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    transition: all .4s;
+}
+
+#searchArea form input:focus{
+    width: 400px;
+    background-color: #fff;
+    color: #000;
+}
+
+#searchArea form button {
+    height: 30px;
+    width: 30px;
+    margin-left: 0;
+    background-color: #3F4448;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    transition: all .3s;
+}
+
+#searchArea form button:hover {
+    background-color: #6E7275;
+}
+
+/* Area com informações de perfil e repositórios */
+#infos{
+    width: 100vw;
+    display: flex;
+    margin: 80px 0 0 0;
+    padding: 0 0 20px 64px;
+}
+
+/* Area com repositórios */
+#reposArea {
+    max-width: autopx;
+    padding: 0 100px 0 10px;
+}
