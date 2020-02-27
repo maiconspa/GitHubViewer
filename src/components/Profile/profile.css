@@ -1,7 +1,7 @@
 #profileArea {
     width: 268px;
-    height: 100%;
-    padding: 22px 10px 22px 10px;
+    height: 88vh;
+    padding: 22px 10px 0 10px;
     margin-right: 100px;
     text-align: center;
     background-color: #fff;
@@ -39,9 +39,15 @@
     margin: 0 0 0 10px;
 }
 
+@media only screen and (max-width: 1070px) {
+    #profileArea {
+        margin-right: 50px;
+        text-align: center;
+        text-align: -webkit-center;
+    }
+}
 
-
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 950px) {
     #profileArea {
         width: 94%;
         margin: 0;

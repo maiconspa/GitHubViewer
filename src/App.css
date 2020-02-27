@@ -66,6 +66,19 @@
 
 
 
+
+@media only screen and (min-width: 951px) {
+    body {
+        overflow-y: hidden;
+    }
+    #reposArea {
+        padding-right: 50px;
+        overflow-y: scroll;
+        height: 90vh;
+    }
+}
+
+
 @media only screen and (max-width: 950px){
 
     #searchArea form {
