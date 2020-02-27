@@ -30,16 +30,13 @@ export default class App extends Component {
 		// Capturando o username digitado:
 		const user = document.getElementById('searchBox').value;
 
-		// Simplificando o referenciamento do estado:
-		const { urlGitHub } = this.state;
-
 		// Capturando dados do usuário:
-		axios.get(urlGitHub +'/' +user ).then(
+		axios.get(this.state.urlGitHub +'/' +user ).then(
 			({data}) => this.setState({user: data})
 		);
 
 		// Capturando repositórios:
-		axios.get(urlGitHub +'/' +user +'/repos').then(
+		axios.get(this.state.urlGitHub +'/' +user +'/repos').then(
 			({data}) => this.setState({repos: data})
 		);
 	}
@@ -53,11 +50,15 @@ export default class App extends Component {
 				
 				<div id="searchArea">
 					<form onSubmit={this.getUser}>
-						<img src={GitHubLogo} alt=""/>
-						<input id="searchBox" placeholder="Ex: maiconspa" type="text" required />
-						<button type="submit">
-							<FontAwesomeIcon icon={faSearch} />
-						</button>
+						<div>
+							<img src={GitHubLogo} alt=""/>
+						</div>
+						<div>
+							<input id="searchBox" placeholder="Ex: maiconspa" type="text" required />
+							<button type="submit">
+								<FontAwesomeIcon icon={faSearch} />
+							</button>
+						</div>
 					</form>
 				</div>
 

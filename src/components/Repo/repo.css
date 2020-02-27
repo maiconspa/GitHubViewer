@@ -2,8 +2,7 @@
     display: inline-grid;
     min-width: 250px;
     width: auto;
-    min-height: 50px;
-    height: auto;
+    height: 110px;
     padding: 10px;
     margin: 10px 10px 10px 0;
     background-color: #fff;
@@ -32,4 +31,22 @@
 .repoCard p {
     font-size: 12px;
     max-width: 240px;
+}
+
+
+@media only screen and (max-width: 950px) {
+    .repoCard {
+        width: 45%;
+        margin: 1% 1% 1% 0;
+        height: 110px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .repoCard {
+        width: 90%;
+        margin: 10px 0 0 0;
+        height: 110px;
+        text-align: start;
+    }
 }

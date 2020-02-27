@@ -60,6 +60,66 @@
 
 /* Area com repositórios */
 #reposArea {
-    max-width: autopx;
+    max-width: auto;
     padding: 0 100px 0 10px;
+}
+
+
+
+@media only screen and (max-width: 950px){
+
+    #searchArea form {
+        justify-content: center;
+        display: block;
+        height: 66px;
+        padding: 5px 0 10px 0;
+        text-align: center;
+    }
+
+    #searchArea form div {
+        width: 100%;
+    }
+
+    #searchArea form input {
+        margin: 0;
+        align-self: center;
+    }
+
+    /* Area com informações de perfil e repositórios */
+    #infos{
+        width: auto;
+        display: block;
+        margin: 81px 0 0 0;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    /* Area com repositórios */
+    #reposArea {
+        max-width: auto;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #reposArea {
+        max-width: auto;
+        padding: 0;
+        text-align: center;
+    }
+
+    #reposArea h1 {
+        text-align: start;
+        margin-bottom: 0px;
+        padding-left: 15px;
+    }
+
+    #searchArea form input{
+        width: 200px;
+    }
+
+    #searchArea form input:focus{
+        width: 300px;
+    }
+
 }
