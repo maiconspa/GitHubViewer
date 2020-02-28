@@ -12,6 +12,10 @@ export const ProfileArea = styled.div`
     box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
     transition: all .3s;
 
+    @media only screen and (width: 1366px) and (height: 1024) {    
+        height: 90vh;
+    }
+
     @media only screen and (max-width: 1070px) {    
         margin-right: 50px;
         text-align: center;

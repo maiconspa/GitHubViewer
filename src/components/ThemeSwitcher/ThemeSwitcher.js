@@ -13,7 +13,7 @@ const Button = styled.button`
     color: ${props => props.theme.theme.txtPrimary};
     bottom: 10px;
     border-radius: 50%;
-    border: 1px solid ${props => props.theme.theme.txtPrimary};
+    border: 1px solid ${props => props.theme.theme.bgSecondary};
     transition: all .3s;
 `;
 

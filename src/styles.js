@@ -67,10 +67,10 @@ export const Navbar = styled.form`
     
     @media only screen and (max-width: 600px) {
         input{
-            width: 200px;
+            width: 150px;
         }
 
-        form input:focus{
+        input:focus{
             width: 300px;
         }
     }
@@ -83,7 +83,7 @@ export const ProfileAndRepos = styled.div`
     height: auto;
     display: flex;
     margin: 0;
-    padding: 80px 0 20px 64px;
+    padding: 80px 40px 20px 64px;
     background-color: ${props => props.theme.theme.bgSecondary};
     transition: all .3s;
 
