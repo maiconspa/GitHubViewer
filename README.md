@@ -1,4 +1,7 @@
-/!\ Readme em construção /!\
+# GitHub Viewer
+Uses GitHub API for list information of profiles and repositories.
+
+## To run:
 
 In the project directory, you can run:
 ### `npm install`
