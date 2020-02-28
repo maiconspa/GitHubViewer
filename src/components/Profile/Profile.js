@@ -7,7 +7,7 @@ const renderLocation = (location) => {
     return (
         <Location>
             <FontAwesomeIcon icon={faMapMarker} />
-            <h5> {location} </h5>
+            <p> {location} </p>
         </Location>
     );
 }
@@ -17,10 +17,11 @@ const Profile = (props) => {
 
     return(
         <ProfileArea>
+            {console.log(props.theme)}
             <Name>{user.name}</Name>
             <Username>{user.login}</Username>
             <Img src={user.avatar_url} alt=""/>
-            {user.bio ? <Text>{user.bio}</Text> :null}
+            {user.bio ? <Text>{user.bio > 120 ? user.bio.substr(0, 120) + "..." : user.bio}</Text> :null}
             {user.location ? renderLocation(user.location) : null}
         </ProfileArea>
     );

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Navbar = styled.form`
 	position: fixed;
     top: 0;
@@ -80,11 +79,13 @@ export const Navbar = styled.form`
 // Area com informações de perfil e repositórios
 export const ProfileAndRepos = styled.div`
     width: 100vw;
-    height: 110vh;
+    min-height: 110vh;
+    height: auto;
     display: flex;
     margin: 0;
     padding: 80px 0 20px 64px;
-    background-color: #f1f2f6;
+    background-color: ${props => props.theme.theme.bgSecondary};
+    transition: all .3s;
 
     @media only screen and (max-width: 950px){
         width: auto;
@@ -99,6 +100,10 @@ export const ProfileAndRepos = styled.div`
 export const ContainerRepos = styled.div`
     max-width: auto;
     padding: 0 100px 0 10px;
+
+    h1 {
+        color: ${props => props.theme.theme.txtPrimary};
+    }
 
     @media only screen and (min-width: 951px) {
         padding-right: 50px;
@@ -122,14 +127,4 @@ export const ContainerRepos = styled.div`
             padding-left: 15px;
         }
     }
-`;
-
-export const ThemeSwitcher = styled.button`
-    width: 30px;
-	height: 30px;
-	position: fixed;
-	right: 10px;
-    bottom: 10px;
-    border-radius: 50%;
-    border: 1px solid #000;
 `;

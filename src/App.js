@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
+import { ThemeProvider } from 'styled-components';
 import axios from 'axios';
 import Profile from './components/Profile/Profile';
 import Repo from './components/Repo/Repo';
+import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faPalette } from '@fortawesome/free-solid-svg-icons';
 
 // SVG
 import GitHubLogo from './assets/GitHub.svg';
 
 // Stylization
-import { Navbar, ThemeSwitcher, ContainerRepos, ProfileAndRepos } from './styles.js';
-
-// External Functions
-import { setTheme } from './utils/setTheme';
+import { Navbar, ContainerRepos, ProfileAndRepos } from './styles.js';
+import * as themes from './utils/Themes';
+import ThemeContext from './utils/Themes/context';
 
 export default class App extends Component {
 	constructor(){
@@ -24,11 +24,15 @@ export default class App extends Component {
 			urlGitHub: 'https://api.github.com/users',
 			user: [],
 			repos: [],
-			themeController: 'light',
-			lightColors: ['#fff', '#f1f2f6','#000', '#333'],
-			darkColors: ['#24292E', '#000', '#fff', '#333']
+			theme: themes.light,
 		};
-	}
+	};
+
+	toggleTheme = () => {
+		this.setState({
+			theme: this.state.theme === themes.light ? themes.dark : themes.light
+		});
+	};
 
 	getUser = (e) => {
 		// Prevenindo reload da página
@@ -46,21 +50,7 @@ export default class App extends Component {
 		axios.get(this.state.urlGitHub +'/' +user +'/repos').then(
 			({data}) => this.setState({repos: data})
 		);
-	}
-
-
-	// Comportamento do botão de troca de temas:
-	changeState = () => {
-		if (this.state.themeController === 'light') {
-			this.setState({themeController: 'dark'});
-			console.log(this.state.themeController);
-			setTheme('dark');
-		} else {
-			this.setState({themeController: 'light'});
-			console.log(this.state.themeController);
-			setTheme('light');
-		}
-	}
+	};
 
 
 	/*
@@ -68,17 +58,9 @@ export default class App extends Component {
 	 * exibe as informações de perfil:
 	 */
 	showProfile = (user) => {
-		//const light = this.state.lightColors;
-		//const dark = this.state.darkColors;
-
-		if (user.length !== 0) {
-			return(
-				<Profile user={user} />
-			);
-		} else {
-			return (null);
-		}
-	}
+		var content = user.length !== 0 ? <Profile user={user}/> : null;
+		return content;
+	};
 
 	/*
 	 * Função que verifica o estado, caso esteja preenchido, 
@@ -95,35 +77,43 @@ export default class App extends Component {
 		} else {
 			return (null);
 		} 
-	}
+	};
+
+	renderNavbar = () => (
+		<Navbar onSubmit={this.getUser}>
+			<div>
+				<img src={GitHubLogo} alt=""/>
+			</div>
+			<div>
+				<input id="searchBox" placeholder="Ex: maiconspa" type="text" required />
+				<button type="submit">
+					<FontAwesomeIcon icon={faSearch} />
+				</button>
+			</div>
+		</Navbar>
+	);
 
 	render(){
 		const user = this.state.user;
 		const repos = this.state.repos;
 
 		return (
-			<div className="App">
+			<div>
+				{this.renderNavbar()}
 				
-				<Navbar onSubmit={this.getUser}>
-					<div>
-						<img src={GitHubLogo} alt=""/>
-					</div>
-					<div>
-						<input id="searchBox" placeholder="Ex: maiconspa" type="text" required />
-						<button type="submit">
-							<FontAwesomeIcon icon={faSearch} />
-						</button>
-					</div>
-				</Navbar>
-
-				<ThemeSwitcher onClick={this.changeState}>
-					<FontAwesomeIcon icon={faPalette} />
-				</ThemeSwitcher>
-
-				<ProfileAndRepos>
-					{ this.showProfile(user) }
-					{ this.showRepos(user, repos) }
-				</ProfileAndRepos>
+				<ThemeContext.Provider value={this.state}>	
+					<ThemeContext.Consumer>
+						{theme => (
+							<ThemeProvider theme={theme}>
+								<ThemeSwitcher toggleTheme={this.toggleTheme} />
+								<ProfileAndRepos>
+									{ this.showProfile(user) }
+									{ this.showRepos(user, repos) }
+								</ProfileAndRepos>
+							</ThemeProvider>
+						)}
+					</ThemeContext.Consumer>
+				</ThemeContext.Provider>
 			</div>
 		);
 	}

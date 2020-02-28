@@ -7,7 +7,7 @@ export const RepoCard = styled.div`
     height: 110px;
     padding: 10px;
     margin: 10px 10px 10px 0;
-    background-color: #fff;
+    background-color: ${props => props.theme.theme.bgPrimary};
     border: none;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -20,18 +20,17 @@ export const RepoCard = styled.div`
     a {
         padding: 0 0 10px 0;
         text-decoration: none;
-        color: #333;
+        color: ${props => props.theme.theme.txtPrimary};
         font-size: 20px;
         transition: all .3s;
     }
 
-    a:hover, a:focus {
-        color: #111;
-    }
-
     p {
-        font-size: 12px;
+        margin: 0 0 10px 0;
+        color: ${props => props.theme.theme.txtSecondary};
+        font-size: 13px;
         max-width: 240px;
+        word-wrap: break-word;
     }
 
     @media only screen and (max-width: 950px) {
