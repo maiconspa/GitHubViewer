@@ -3,7 +3,12 @@ import { ThemeProvider } from 'styled-components';
 import axios from 'axios';
 import Profile from './components/Profile/Profile';
 import Repo from './components/Repo/Repo';
+
+// Themes and stylization
 import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
+import { Navbar, ContainerRepos, ProfileAndRepos } from './styles.js';
+import * as themes from './utils/Themes';
+import ThemeContext from './utils/Themes/context';
 
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,11 +16,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 // SVG
 import GitHubLogo from './assets/GitHub.svg';
-
-// Stylization
-import { Navbar, ContainerRepos, ProfileAndRepos } from './styles.js';
-import * as themes from './utils/Themes';
-import ThemeContext from './utils/Themes/context';
 
 export default class App extends Component {
 	constructor(){
@@ -29,6 +29,8 @@ export default class App extends Component {
 	};
 
 	toggleTheme = () => {
+		// Cada vez que o botão for pressionado,
+		// altera-se o estado de acordo com o novo tema.
 		this.setState({
 			theme: this.state.theme === themes.light ? themes.dark : themes.light
 		});
@@ -79,6 +81,7 @@ export default class App extends Component {
 		} 
 	};
 
+	// Renderiza a barra de pesquisa e navegação
 	renderNavbar = () => (
 		<Navbar onSubmit={this.getUser}>
 			<div>
