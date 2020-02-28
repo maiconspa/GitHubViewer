@@ -31,7 +31,7 @@ export const ProfileArea = styled.div`
 `;
 
 export const Name = styled.h1`
-    margin: 0 0 0 10px;
+    margin: 0;
 `;
 
 export const Username = styled.h3`
@@ -52,7 +52,6 @@ export const Img = styled.img`
 
 export const Text = styled.p`
     max-width: 250px;
-    text-align: center;
 
     @media only screen and (max-width: 600px) {
         width: 200px;
