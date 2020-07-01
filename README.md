@@ -1,4 +1,10 @@
 <h1 align="center">GitHub Viewer</h1>
+<p align="center">
+  <img src="https://img.shields.io/github/stars/maiconspa/GitHubViewer?color=9cf">
+  <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/maiconspa/GitHubViewer?color=9cd">
+  <img alt="Project programing languages count" src="https://img.shields.io/github/languages/count/maiconspa/GitHubViewer?color=9cb">
+</p>
+
 
 Uses GitHub API for list information of profiles and repositories.
 
