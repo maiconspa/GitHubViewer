@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://github.githubassets.com/favicons/favicon-dark.png" width="20px" height="20px"> GitHub Viewer</h1>
+<h1 align="center">GitHub Viewer</h1>
 
 Uses GitHub API for list information of profiles and repositories.
 
